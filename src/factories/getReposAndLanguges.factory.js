@@ -1,3 +1,9 @@
+/**
+ * @description - Function that checks and sorts value based on key.
+ * @param {String} key - Key to be checked. 
+ * @param {String} order - Descending or ascending.
+ * @returns {Number} - Returns 1 or -1.  
+ */
 const compareValues = (key, order = 'asc') => {
     return function innerSort(a, b) {
       if (!a.hasOwnProperty(key) || !b.hasOwnProperty(key)) {
@@ -21,6 +27,12 @@ const compareValues = (key, order = 'asc') => {
     };
   }
 
+  /**
+   * @description - Function that returns repo details and languages along with byte codes.
+   * @param {Object} data - Repository data object. 
+   * @param {Array} languages - Languages array.
+   * @returns {Object} - Repo and language obj.
+   */
 const getReposAndLanguages = (data, languages) => {
     const response = languages;
     const sorted_stars_array = data.sort(compareValues('stargazers_count', 'desc'));
