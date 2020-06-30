@@ -71,6 +71,10 @@ const styles = {
     borderBottom: "1px solid lightgray",
     paddingBottom: "25px",
   },
+  description: {
+    marginTop: '10px',
+    marginBottom: '20px',
+  },
   percentageBackground: { width: "80%", backgroundColor: "lightgray" },
   redDiv: {
       color: 'red',

@@ -67,6 +67,10 @@ class ResumeBody extends Component {
       repoData.data.languages !== undefined
         ? Object.keys(repoData.data.languages)
         : {};
+    const styles = {
+      height: "5px",
+      backgroundColor: "gray",
+    };
     return (
       <Fragment>
         <div>
@@ -84,6 +88,7 @@ class ResumeBody extends Component {
                 <div key={index} className={classes.columnFlex}>
                   <div className={classes.rowFlex}>
                     <div className={classes.languageTitle}>{val}</div>
+                    {/* Calculates the percentage by dividing the total byte codes of languages with the overall total and then multiplying by 100 */}
                     <div className={classes.percentageDiv}>
                       (
                       {(
@@ -96,12 +101,11 @@ class ResumeBody extends Component {
                   <div className={classes.percentageBackground}>
                     <div
                       style={{
-                        height: "5px",
+                        ...styles,
                         width: `${
                           (repoData.data.languages[val] / repoData.data.total) *
                           100
                         }%`,
-                        backgroundColor: "gray",
                       }}
                     ></div>
                   </div>
@@ -123,21 +127,29 @@ class ResumeBody extends Component {
       <Fragment>
         <div style={{ marginTop: "35px" }}>
           <h3>Popular Respositories</h3>
+          {/* Checks whether data has been obtained from API call and then only render */}
           {repoData.data.data !== undefined
             ? repoData.data.data.map((val, index) => (
                 <div key={index} className={classes.repoDiv}>
                   <div className={classes.repoTitle}>
                     <div className={classes.repoName}>{val.name}</div>
                     <div className={classes.repoYear}>
+                      {/* Gets the year from UTC date format */}
                       {new Date(val.created_at).getUTCFullYear()}-
                       {new Date(val.updated_at).getUTCFullYear()}
                     </div>
                   </div>
                   <div className={classes.languageDiv}>
+                    {/* Renders the language used for the repository along with its rights */}
                     {val.language !== null ? val.language : "NIL"} -{" "}
                     {val.private ? "Private" : "Public"}
                   </div>
                   <div className={classes.descriptionDiv}>
+                    <div className={classes.description}>
+                      {val.description
+                        ? val.description
+                        : "No description avaible"}
+                    </div>
                     This repository has {val.stargazers_count} stars and{" "}
                     {val.forks} forks. If you would like more information about
                     this repository and my contributed code, please visit{" "}
@@ -160,7 +172,8 @@ class ResumeBody extends Component {
    * @returns {String} - Returns the error string.
    */
   renderErrors = (error) => {
-    if (error.indexOf("403") !== -1) return "API Rate Limit exceeded for your IP. Please try after sometime";
+    if (error.indexOf("403") !== -1)
+      return "API Rate Limit exceeded for your IP. Please try after sometime";
     else if (error.indexOf("404") !== -1) return "User not found";
     else return "Please enter a github username to display the details.";
   };
@@ -182,7 +195,9 @@ class ResumeBody extends Component {
                 {this.renderRepoInfo()}
               </div>
             ) : (
-              <Skeleton width="100vw" height="400px" />
+              <div style={{ marginTop: "50px" }}>
+                <Skeleton width="100vw" height="400px" />
+              </div>
             )}
           </div>
         ) : (
