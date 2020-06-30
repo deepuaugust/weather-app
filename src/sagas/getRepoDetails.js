@@ -15,11 +15,7 @@ import getReposAndLanguages from "../factories/getReposAndLanguges.factory";
  */
 function* fetchRepoDetails(endPoint, { payload }) {
   try {
-    const response = yield call(
-      fetchAPI,
-      `${endPoint}/${payload}/repos`,
-      httpMethod.GET
-    );
+    const response = yield call(fetchAPI, `${endPoint}/${payload}/repos`, httpMethod.GET);
     let languages = [];
     languages = yield all(
       response.map((val) => {
