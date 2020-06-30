@@ -28,6 +28,7 @@ const styles = {
     padding: '10px',
     borderRadius: '20px',
     border: 'none',
+    cursor: 'pointer',
   },
   inputStyles: {
     width: '95%!important',
