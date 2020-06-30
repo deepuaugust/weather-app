@@ -1,13 +1,9 @@
-import React, { Component } from 'react';
-import QuestionsList from './components/questionsList';
-import QuestionDetails from './components/questionDetails';
-import NewQuestion from './components/newQuestion';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-} from "react-router-dom";
-import './App.css';
+import React, { Component } from "react";
+import ResumeHeader from "./components/resumeHeader";
+import ResumeBody from "./components/resumeBody";
+import injectSheet from "react-jss";
+import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
+import styles from "./App.style.js";
 
 /**
  * @description - Render the App class.
@@ -19,18 +15,16 @@ class App extends Component {
       <Router>
         <Switch>
           <Route exact path="/">
-            <QuestionsList />
+            <Redirect to="/home" />
           </Route>
-          <Route path="/questions/:questionid">
-            <QuestionDetails />
-          </Route>
-          <Route path="/add/question">
-            <NewQuestion />
+          <Route exact path="/home">
+            <ResumeHeader />
+            <ResumeBody />
           </Route>
         </Switch>
-    </Router>
+      </Router>
     );
   }
 }
 
-export default App;
+export default injectSheet(styles)(App);

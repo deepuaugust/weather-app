@@ -1,36 +1,37 @@
-import { QUESTIONS_LIST } from '../actions/actionTypes';
+import { REPO_DETAILS } from '../actions/actionTypes';
 
 const initialState = {
   loading: true,
   error: false,
-  data: [],
+  data: {},
   errormsg: '',
 };
 /**
- * @description Reducer for question list.
+ * @description Reducer for repo details.
  * @param {Object} state - State.
  * @param {Object} action - Action.
  * @returns {Object} State.
  */
-const questionsReducer = (state = initialState, action) => {
+const repoDetailsReducer = (state = initialState, action) => {
   switch (action.type) {
-    case QUESTIONS_LIST.SUCCESS:
+    case REPO_DETAILS.SUCCESS:
       return Object.assign({}, state, {
         loading: false,
         data: action.payload,
         error: false,
+        errormsg: "",
       });
-    case QUESTIONS_LIST.FAIL:
+    case REPO_DETAILS.FAIL:
       return Object.assign({}, state, {
         errormsg: action.message,
-        data: [],
+        data: {},
         error: true,
         loading: false,
       });
-    case QUESTIONS_LIST.CLEAR:
+    case REPO_DETAILS.CLEAR:
       return Object.assign({}, state, {
-        errormsg: action.message,
-        data: [],
+        errormsg: "",
+        data: {},
         error: false,
         loading: false,
       });
@@ -39,4 +40,4 @@ const questionsReducer = (state = initialState, action) => {
   }
 };
 
-export default questionsReducer;
+export default repoDetailsReducer;

@@ -1,98 +1,63 @@
 import * as actionTypes from './actionTypes';
 
 /**
- * @description - Function to get questions.
+ * @description - Function to get user details.
  * @returns {Object} - Actions type.
  */
-export const getQuestions = () => ({
-    type: actionTypes.QUESTIONS_LIST.GET,
-  });
-  
-/**
- * @description - Function to save questions.
- * @param {Object} data - Payload data.
- * @returns {Object} - Returns type and payload.
- */
-export function storeQuestions(data) {
-  return {
-    type: actionTypes.QUESTIONS_LIST.SUCCESS,
-    payload: data,
-  };
-}
-
-/**
- * @description - Function to clear questions.
- * @returns {Object} - Returns type and payload.
- */
-export function clearQuestions() {
-  return {
-    type: actionTypes.QUESTIONS_LIST.CLEAR,
-  };
-}
-
-/**
- * @description - Function to get question details.
- * @returns {Object} - Actions type.
- */
-export const getQuestionDetails = (id) => ({
-  type: actionTypes.QUESTION_DETAILS.GET,
-  payload: id,
+export const getUserDetails = (data) => ({
+  type: actionTypes.USER_DETAILS.GET,
+  payload: data,
 });
 
 /**
- * @description - Function to save question detail.
+ * @description - Function to save user detail.
  * @param {Object} data - Payload data.
  * @returns {Object} - Returns type and payload.
  */
-export function storeQuestionDetails(data) {
+export function storeUserDetails(data) {
   return {
-    type: actionTypes.QUESTION_DETAILS.SUCCESS,
+    type: actionTypes.USER_DETAILS.SUCCESS,
     payload: data,
   };
 }
 
 /**
- * @description - Function to clear question detail.
+ * @description - Function to clear user detail.
  * @returns {Object} - Returns type and payload.
  */
-export function clearQuestionDetails() {
+export function clearUserDetails() {
   return {
-    type: actionTypes.QUESTION_DETAILS.CLEAR,
+    type: actionTypes.USER_DETAILS.CLEAR,
   };
 }
 
 /**
- * @description - Function to post vote.
+ * @description - Function to get repo details.
+ * @returns {Object} - Actions type.
+ */
+export const getRepoDetails = (data) => ({
+  type: actionTypes.REPO_DETAILS.GET,
+  payload: data,
+});
+
+/**
+ * @description - Function to save repo detail.
  * @param {Object} data - Payload data.
  * @returns {Object} - Returns type and payload.
  */
-export function postVote(data) {
+export function storeRepoDetails(data) {
   return {
-    type: actionTypes.POST_VOTE.POST,
+    type: actionTypes.REPO_DETAILS.SUCCESS,
     payload: data,
   };
 }
 
 /**
- * @description - Function to post vote.
- * @param {Object} data - Payload data.
+ * @description - Function to clear repo detail.
  * @returns {Object} - Returns type and payload.
  */
-export function storeVote(data) {
+export function clearRepoDetails() {
   return {
-    type: actionTypes.POST_VOTE.SUCCESS,
-    payload: data,
-  };
-}
-
-/**
- * @description - Function to post question.
- * @param {Object} data - Payload data.
- * @returns {Object} - Returns type and payload.
- */
-export function postQuestion(data) {
-  return {
-    type: actionTypes.POST_QUESTION.POST,
-    payload: data,
+    type: actionTypes.REPO_DETAILS.CLEAR,
   };
 }

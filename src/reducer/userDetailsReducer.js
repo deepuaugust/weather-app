@@ -1,4 +1,4 @@
-import { QUESTION_DETAILS } from '../actions/actionTypes';
+import { USER_DETAILS } from '../actions/actionTypes';
 
 const initialState = {
   loading: true,
@@ -7,29 +7,30 @@ const initialState = {
   errormsg: '',
 };
 /**
- * @description Reducer for question details.
+ * @description Reducer for user details.
  * @param {Object} state - State.
  * @param {Object} action - Action.
  * @returns {Object} State.
  */
-const questionDetailsReducer = (state = initialState, action) => {
+const userDetailsReducer = (state = initialState, action) => {
   switch (action.type) {
-    case QUESTION_DETAILS.SUCCESS:
+    case USER_DETAILS.SUCCESS:
       return Object.assign({}, state, {
         loading: false,
         data: action.payload,
         error: false,
+        errormsg: "",
       });
-    case QUESTION_DETAILS.FAIL:
+    case USER_DETAILS.FAIL:
       return Object.assign({}, state, {
         errormsg: action.message,
         data: {},
         error: true,
         loading: false,
       });
-    case QUESTION_DETAILS.CLEAR:
+    case USER_DETAILS.CLEAR:
       return Object.assign({}, state, {
-        errormsg: action.message,
+        errormsg: "",
         data: {},
         error: false,
         loading: false,
@@ -39,4 +40,4 @@ const questionDetailsReducer = (state = initialState, action) => {
   }
 };
 
-export default questionDetailsReducer;
+export default userDetailsReducer;

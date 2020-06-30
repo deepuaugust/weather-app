@@ -1,16 +1,12 @@
 import { spawn } from 'redux-saga/effects';
-import watchGetQuestions from '../sagas/getQuestions';
-import watchGetQuestionDetails from '../sagas/getQuestionDetails';
-import watchPostVote from '../sagas/postVote';
-import watchPostQuestion from '../sagas/postQuestion';
+import watchGetUserDetails from '../sagas/getUserDetails';
+import watchGetRepoDetails from '../sagas/getRepoDetails';
 
 /**
  * @description - Core saga function.
  */
 export default function* rootSaga() {
   yield 'RootSaga';
-  yield spawn(watchGetQuestions);
-  yield spawn(watchGetQuestionDetails);
-  yield spawn(watchPostVote);
-  yield spawn(watchPostQuestion);
+  yield spawn(watchGetUserDetails);
+  yield spawn(watchGetRepoDetails);
 }
