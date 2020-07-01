@@ -1,6 +1,6 @@
 ## Cloning and Running the Application in local
 
-* Clone the project into local by typing **git clone https://github.com/deepuaugust/shopping-app.git**.
+* Clone the project into local by typing **git clone https://github.com/deepuaugust/exozet-deepak-sasidharan.git**.
 * Install all the npm packages. Go into the project folder and type the following command to install all npm packages: **npm install**
 * In order to run the application type the following command: **npm run start**
 * The application runs on localhost:3000
