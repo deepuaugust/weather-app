@@ -215,7 +215,6 @@ class ResumeBody extends Component {
  * @returns {Object} - Props.
  */
 function mapStateToProps(state) {
-  console.log(state);
   return {
     userData: state.userDetailsReducer,
     repoData: state.repoDetailsReducer,

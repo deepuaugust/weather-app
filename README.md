@@ -11,6 +11,6 @@
 
 ## Information regarding the application
 
-* This application lists out a simple github profile layout info.
+* This is a fully responsive single page application that lists out a simple github profile layout info.
 * It shows languages used in various repositories and calculates the byte codes of each language used and finally outputs the percentage based on the total number of byte codes used in all repositories.
 * The repositories are listed out based on the numbers of stars obtained for each repository with the highest number being listed first.
