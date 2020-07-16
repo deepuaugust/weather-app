@@ -11,7 +11,7 @@ import WeatherDetails from "./components/weatherDetails";
 class App extends Component {
   render() {
     return (
-      <Router>
+      <Router basename="/home">
         <Switch>
           <Route exact path="/">
             <Redirect to="/home" />
