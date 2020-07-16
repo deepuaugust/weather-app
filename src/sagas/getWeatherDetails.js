@@ -22,8 +22,8 @@ function* fetchWeatherDetails(endPoint) {
 }
 
 /**
- * @description - Watches for the action getUserDetails & calls fetchUserDetails.
+ * @description - Watches for the action getWeatherDetails & calls fetchWeatherDetails.
  */
 export default function* watchGetWeatherDetails() {
-  yield takeEvery(WEATHER_DETAILS.GET, fetchWeatherDetails, 'http://api.openweathermap.org/data/2.5/forecast?q=Munich,de&APPID=75f972b80e26f14fe6c920aa6a85ad57&cnt=40');
+  yield takeEvery(WEATHER_DETAILS.GET, fetchWeatherDetails, 'https://cors-anywhere.herokuapp.com/http://api.openweathermap.org/data/2.5/forecast?q=Munich,de&APPID=75f972b80e26f14fe6c920aa6a85ad57&cnt=40');
 }
