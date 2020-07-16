@@ -9,6 +9,10 @@
 
 * Go into the project folder and type the following command to run the test: **npm run test**
 
+## Live Demo of the application
+
+* Live demo of the application available here: **https://deepuaugust.github.io/weather-app/**
+
 ## Information regarding the application
 
 * This is a fully responsive single page application that lists out the weather details of a city for the next 5-6 days.
