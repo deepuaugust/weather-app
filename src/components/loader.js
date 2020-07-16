@@ -10,14 +10,6 @@ import CircularProgress from "@material-ui/core/CircularProgress";
  */
 class Loader extends Component {
   /**
-   * @description - Constructor for the class.
-   * @param {Object} props - Object props.
-   */
-  constructor(props) {
-    super(props);
-  }
-
-  /**
    * @description - Renders the loader.
    * @returns {Node} - Returns html.
    */

@@ -10,10 +10,6 @@ import WeatherDetails from '../components/weatherDetails';
 configure({ adapter: new Adapter() });
 const mockStore = configureStore();
 
-const location = {
-    pathname:'/home'
-}
-
 let initialState = {
     weatherDetailsReducer: {
         data: {
@@ -28,13 +24,13 @@ const div = global.document.createElement('div');
 
 describe("WeatherDetails Component", () => {
     it('renders without crashing', () => {
-        ReactDOM.render(<Router><WeatherDetails store={store} location={location} /></Router>, div);
+        ReactDOM.render(<Router><WeatherDetails store={store} /></Router>, div);
         ReactDOM.unmountComponentAtNode(div);
     });
 
     it('should fetch weather details when mounted', () => {
         const wrapper = mount(
-                <Router><WeatherDetails store={store} location={location}/></Router>, {
+                <Router><WeatherDetails store={store} /></Router>, {
                 attachTo: document.body.appendChild(div),
             });
         expect(wrapper).toBeDefined();
@@ -44,7 +40,7 @@ describe("WeatherDetails Component", () => {
     it('change functionality of radio button', () => {
         const event = {target: {}}
         const wrapper = mount(
-            <Router><WeatherDetails store={store} location={location}/></Router>, { 
+            <Router><WeatherDetails store={store} /></Router>, { 
             attachTo: document.body.appendChild(div),
         });
         wrapper.find('input[type="radio"]').at(1).simulate('change', event);
@@ -54,7 +50,7 @@ describe("WeatherDetails Component", () => {
       it('check if carousel is being rendered', () => {
         const event = {target: {}}
         const wrapper = mount(
-            <Router><WeatherDetails store={store} location={location}/></Router>, { 
+            <Router><WeatherDetails store={store} /></Router>, { 
             attachTo: document.body.appendChild(div),
         });
         expect(wrapper.find('Carousel')).toBeDefined();
@@ -64,7 +60,7 @@ describe("WeatherDetails Component", () => {
       it('check if bar chart is being rendered', () => {
         const event = {target: {}}
         const wrapper = mount(
-            <Router><WeatherDetails store={store} location={location}/></Router>, { 
+            <Router><WeatherDetails store={store} /></Router>, { 
             attachTo: document.body.appendChild(div),
         });
         expect(wrapper.find('Bar')).toBeDefined();

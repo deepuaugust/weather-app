@@ -1,7 +1,6 @@
 import React, { Component, Fragment } from "react";
 import PropTypes from "prop-types";
 import injectSheet from "react-jss";
-import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import styles from "./weatherDetails.style.js";
 import Radio from "@material-ui/core/Radio";
@@ -320,6 +319,4 @@ WeatherDetails.propTypes = {
 
 WeatherDetails.defaultProps = {};
 
-export default injectSheet(styles)(
-  withRouter(connect(mapStateToProps)(WeatherDetails))
-);
+export default injectSheet(styles)(connect(mapStateToProps)(WeatherDetails));

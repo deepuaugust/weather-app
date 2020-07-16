@@ -8,15 +8,11 @@ import Loader from '../components/loader';
 configure({ adapter: new Adapter() });
 jest.mock('react-dom');
 
-const location = {
-    pathname:'/home'
-}
-
 const div = global.document.createElement('div');
 
 describe("Loader Component", () => {
     it('renders without crashing', () => {
-        ReactDOM.render(<Router><Loader location={location} /></Router>, div);
+        ReactDOM.render(<Router><Loader /></Router>, div);
         ReactDOM.unmountComponentAtNode(div);
     });
 });
