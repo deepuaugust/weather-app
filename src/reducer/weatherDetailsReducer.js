@@ -1,4 +1,4 @@
-import { REPO_DETAILS } from '../actions/actionTypes';
+import { WEATHER_DETAILS } from '../actions/actionTypes';
 
 const initialState = {
   loading: true,
@@ -7,28 +7,28 @@ const initialState = {
   errormsg: '',
 };
 /**
- * @description Reducer for repo details.
+ * @description Reducer for weather details.
  * @param {Object} state - State.
  * @param {Object} action - Action.
  * @returns {Object} State.
  */
-const repoDetailsReducer = (state = initialState, action) => {
+const weatherDetailsReducer = (state = initialState, action) => {
   switch (action.type) {
-    case REPO_DETAILS.SUCCESS:
+    case WEATHER_DETAILS.SUCCESS:
       return Object.assign({}, state, {
-        loading: false,
+        loading: true,
         data: action.payload,
         error: false,
         errormsg: "",
       });
-    case REPO_DETAILS.FAIL:
+    case WEATHER_DETAILS.FAIL:
       return Object.assign({}, state, {
         errormsg: action.message,
         data: {},
         error: true,
         loading: false,
       });
-    case REPO_DETAILS.CLEAR:
+    case WEATHER_DETAILS.CLEAR:
       return Object.assign({}, state, {
         errormsg: "",
         data: {},
@@ -40,4 +40,4 @@ const repoDetailsReducer = (state = initialState, action) => {
   }
 };
 
-export default repoDetailsReducer;
+export default weatherDetailsReducer;

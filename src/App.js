@@ -1,9 +1,8 @@
 import React, { Component } from "react";
-import ResumeHeader from "./components/resumeHeader";
-import ResumeBody from "./components/resumeBody";
 import injectSheet from "react-jss";
 import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
 import styles from "./App.style.js";
+import WeatherDetails from "./components/weatherDetails";
 
 /**
  * @description - Render the App class.
@@ -18,8 +17,7 @@ class App extends Component {
             <Redirect to="/home" />
           </Route>
           <Route exact path="/home">
-            <ResumeHeader />
-            <ResumeBody />
+            <WeatherDetails />
           </Route>
         </Switch>
       </Router>
