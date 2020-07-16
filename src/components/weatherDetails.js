@@ -209,7 +209,7 @@ class WeatherDetails extends Component {
               {weatherDetails.map((item, index) => (
                 <Grid key={index} item xs={11}>
                   <Card className={classes.root} variant="outlined">
-                    <CardContent>
+                    <CardContent className={classes.contentDiv}>
                       <Typography variant="h5" component="h2">
                         {item.date}
                       </Typography>
@@ -220,7 +220,7 @@ class WeatherDetails extends Component {
                           : this.getTemperature(item.avg_temp, "fahrenheit")}
                       </Typography>
                     </CardContent>
-                    <CardActions>
+                    <CardActions className={classes.actionDiv}>
                       <Button
                         size="small"
                         onClick={() => this.generateChart(item.data)}
