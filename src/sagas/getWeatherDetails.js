@@ -1,5 +1,5 @@
 /**
- * @description - Saga function to call user details api.
+ * @description - Saga function to call weather details api.
  */
 import { takeEvery, call, put } from 'redux-saga/effects';
 import fetchAPI from './fetchAPI';
@@ -24,6 +24,7 @@ function* fetchWeatherDetails(endPoint) {
 /**
  * @description - Watches for the action getWeatherDetails & calls fetchWeatherDetails.
  */
+// Appending link to avoid CORS issue while hosing in github pages.
 export default function* watchGetWeatherDetails() {
   yield takeEvery(WEATHER_DETAILS.GET, fetchWeatherDetails, 'https://cors-anywhere.herokuapp.com/http://api.openweathermap.org/data/2.5/forecast?q=Munich,de&APPID=75f972b80e26f14fe6c920aa6a85ad57&cnt=40');
 }
